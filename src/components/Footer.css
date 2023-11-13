@@ -1,0 +1,23 @@
+footer {
+    background-color: #98fb98;
+
+    /* grid */
+    display: grid;
+    grid-template-areas: "p p p . h2";
+    grid-template-columns: 1fr 1fr 1fr 7fr;
+    grid-template-rows: max-content;
+    align-items: center;
+}
+
+footer p {
+
+    /* grid */
+    justify-self: center;
+}
+footer h2 {
+    text-shadow: 3px 3px 9px grey;
+    padding: 0px 10px;
+
+    /* grid */
+    justify-self: end;
+}

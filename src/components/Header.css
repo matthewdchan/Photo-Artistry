@@ -1,0 +1,24 @@
+header {
+    background-color: #e6e6fa;
+
+    min-height: 3em;
+    vertical-align: middle;
+    padding: 5px 15px;
+
+    /* grid */
+    display: grid;
+    grid-template-areas: "h2 . . button";
+    grid-template-columns: 1fr 1fr 1fr 7fr;
+    grid-template-rows: max-content;
+    align-items: center;
+}
+
+header h2 {
+    text-shadow: 3px 3px 9px grey;
+}
+
+/* Place buttons on the right */
+.button {
+    grid-area: button;
+    justify-self: end;
+}
