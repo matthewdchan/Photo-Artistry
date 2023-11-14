@@ -18,7 +18,3 @@ header h2 {
 }
 
 /* Place buttons on the right */
-.button {
-    grid-area: button;
-    justify-self: end;
-}

@@ -12,7 +12,10 @@ import Footer from '../Footer';
 function NonAuthUser(){
     return(
         <div>
-            <Header />
+            <Header>
+                <Link to='/login'>Sign Up</Link>
+                <Link to='/login'>Log In</Link>
+            </Header>
             <p> This is the NONAUTHUSER page </p>
             <Footer />
         </div>
