@@ -13,7 +13,7 @@ import Footer from '../Footer';
 function NonAuthUser(){
 
     // Dummy Data
-    const DUMMY = [
+    const DUMMY_ARRAY = [
         {
             name: 'name',
             artist: 'creator',
@@ -39,7 +39,7 @@ function NonAuthUser(){
                 <Link to='/login'>Sign Up</Link>
                 <Link to='/login'>Log In</Link>
             </Header>
-            <Main>
+            <Main artblocks={DUMMY_ARRAY}>
                 <p>This is the nonauth user page</p>
             </Main>
             <Footer />

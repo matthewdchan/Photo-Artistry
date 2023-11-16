@@ -1,5 +1,19 @@
+/* General Card */
 .card {
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 10px;
-  }
+}
+
+/* Surrounds all art objects */
+.art-wrapper {
+    border: 10px solid blue;
+
+    display: flex;
+}
+
+/* An individual art object */
+.art-block {
+    background-color: red;
+    border: 10px solid darkred;
+}

@@ -10,7 +10,7 @@ function Header(props){
     return(
         <header>
             <h2>PhotoArtistry</h2>
-            <div class="button-wrapper">
+            <div className="button-wrapper">
                 { props.children }  
             </div>          
         </header>

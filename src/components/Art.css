@@ -1,0 +1,11 @@
+/* STYLES FOR EACH "ART" BLOCK */
+
+
+.art-block h2 {
+    color: green;
+}
+
+.art-block img {
+    max-width: 10%;
+    object-fit: cover;
+}
