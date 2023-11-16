@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 // Needed Components
 import Header from '../Header';
+import Main from '../Main';
 import Footer from '../Footer';
 
 function AddItem(){
@@ -15,8 +16,10 @@ function AddItem(){
             <Header>
                 <Link to='/login'>Log In</Link>
             </Header>
-            <p>THIS IS THE ADD ITEM PAGE</p>
-            <Link to='/auth-user'>Nevermind, return to authView</Link>
+            <Main>
+                <p>THIS IS THE ADD ITEM PAGE</p>
+                <Link to='/auth-user'>Nevermind, return to authView</Link>
+            </Main>
             <Footer />
         </>
     );

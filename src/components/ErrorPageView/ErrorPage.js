@@ -6,6 +6,7 @@ import React from 'react';
 
 // Needed Components
 import Header from '../Header';
+import Main from '../Main';
 import Footer from '../Footer';
 
 
@@ -13,7 +14,9 @@ function ErrorPage(){
     return(
         <>
             <Header />
-            <p>This is the error page. Page not found... </p>
+            <Main>
+                <p>This is the error page. Page not found... </p>
+            </Main>
             <Footer />
         </>
     );
