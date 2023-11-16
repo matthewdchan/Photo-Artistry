@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 // Needed Components
 import Header from '../Header';
 import Main from '../Main';
+import Card from '../Card';
+import Art from '../Art';
 import Footer from '../Footer';
 
 function NonAuthUser(){
@@ -39,8 +41,18 @@ function NonAuthUser(){
                 <Link to='/login'>Sign Up</Link>
                 <Link to='/login'>Log In</Link>
             </Header>
-            <Main artblocks={DUMMY_ARRAY}>
-                <p>This is the nonauth user page</p>
+            <Main>
+                <Card className="art-wrapper">
+                    {DUMMY_ARRAY.map((artblock) => (
+                        <Art
+                        className="art-block"
+                        name={artblock.name}
+                        artist={artblock.artist}
+                        img={artblock.img}
+                        key={artblock.id}
+                        />
+                    ))}
+                </Card>
             </Main>
             <Footer />
         </div>
