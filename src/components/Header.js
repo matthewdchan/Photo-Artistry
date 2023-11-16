@@ -10,7 +10,9 @@ function Header(props){
     return(
         <header>
             <h2>PhotoArtistry</h2>
-            { props.children }            
+            <div class="button-wrapper">
+                { props.children }  
+            </div>          
         </header>
     );
 }

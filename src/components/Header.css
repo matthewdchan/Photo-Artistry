@@ -1,20 +1,42 @@
+/* Main header */
 header {
     background-color: #e6e6fa;
-
-    min-height: 3em;
-    vertical-align: middle;
+    min-height: 2em;
     padding: 5px 15px;
 
-    /* grid */
-    display: grid;
-    grid-template-areas: "h2 . . button";
-    grid-template-columns: 1fr 1fr 1fr 7fr;
-    grid-template-rows: max-content;
+    display: flex;
     align-items: center;
 }
 
+/* Logo */
 header h2 {
-    text-shadow: 3px 3px 9px grey;
+    text-shadow: 2px 2px 5px #2e2bd4;
+    font-style: italic;
 }
 
-/* Place buttons on the right */
+/* Button Wrapper */
+.button-wrapper { 
+    margin-left: auto; /* align buttons right */
+}
+
+/* Router Link buttons */
+header a {
+    text-decoration: none;
+    padding: 0.5em;
+    background: #fff5e1;
+    border: 2px solid black;
+    border-radius: 10%;
+    margin: 0.5em;
+}
+
+header a:link {
+    color: blue;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+header a:visited {
+    color: purple;
+}

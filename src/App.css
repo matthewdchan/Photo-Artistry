@@ -1,0 +1,6 @@
+/* global styles */
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+Header, Footer {
+    font-family: 'Barlow', sans-serif;
+}
