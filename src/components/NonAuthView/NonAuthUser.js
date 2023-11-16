@@ -12,29 +12,7 @@ import Card from '../Card';
 import Art from '../Art';
 import Footer from '../Footer';
 
-function NonAuthUser(){
-
-    // Dummy Data
-    const DUMMY_ARRAY = [
-        {
-            name: 'name',
-            artist: 'creator',
-            img: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg',
-            id: Math.random().toString()
-        },
-        {
-            name: 'name2',
-            artist: 'creator2',
-            img: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg',
-            id: Math.random().toString()
-        },
-        {
-            name: 'name3',
-            artist: 'creator3',
-            img: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg',
-            id: Math.random().toString()
-        },
-    ];
+function NonAuthUser(props){
     return(
         <div>
             <Header>
@@ -43,7 +21,7 @@ function NonAuthUser(){
             </Header>
             <Main>
                 <Card className="art-wrapper">
-                    {DUMMY_ARRAY.map((artblock) => (
+                    {props.artblocks.map((artblock) => (
                         <Art
                         className="art-block"
                         name={artblock.name}
