@@ -7,6 +7,7 @@ import AddItem from './components/AddItemView/AddItem';
 import AuthUser from './components/AuthView/AuthUser';
 import LoginPage from './components/LoginView/LoginPage';
 import ErrorPage from './components/ErrorPageView/ErrorPage';
+import SignupPage from './components/SignupView/SignupPage';
 
 
 // Router
@@ -44,6 +45,7 @@ function App() {
           <Route path='/auth-user' element={<AuthUser artblocks={DUMMY_ARRAY} />} />
           <Route path='/add-item' element={<AddItem />} />
           <Route path='/login' element={<LoginPage />} />
+          <Route path='/signup' element={<SignupPage />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </div>

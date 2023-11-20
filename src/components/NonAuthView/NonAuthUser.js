@@ -17,7 +17,7 @@ function NonAuthUser(props){
     return(
         <div>
             <Header>
-                <Link to='/login'>Sign Up</Link>
+                <Link to='/signup'>Sign Up</Link>
                 <Link to='/login'>Log In</Link>
             </Header>
             <Main>
