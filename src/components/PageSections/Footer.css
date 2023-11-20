@@ -3,9 +3,11 @@ footer {
     background-color: #98fb97;
     max-height: 3.5em;
     padding: 5px 15px;
-
     display: flex;
     align-items: center;
+    position: fixed;
+    width: 99%;
+    bottom: 0;
 }
 
 

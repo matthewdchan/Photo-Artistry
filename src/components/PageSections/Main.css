@@ -1,7 +1,7 @@
 /* STYLES FOR THE "MAIN" BLOCK OF EACH PAGE */
 /* -> original styling */
 Main {
-    padding: 10px;
-    border: 10px solid black;
+    padding: 50px;
+    border: 10px;
 }
 
