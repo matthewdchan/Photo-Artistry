@@ -1,11 +1,42 @@
 /* STYLES FOR EACH "ART" BLOCK */
 
-
-.art-block h2 {
-    color: green;
+.art-block img {
+    max-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    overflow: hidden;
 }
 
-.art-block img {
-    max-width: 10%;
-    object-fit: cover;
+.art-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.art-block {
+    background-color: #fff; /* Match the color to your design */
+    border: none; /* Remove the red border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 10px; /* Rounded corners like the image */
+    overflow: hidden; /* Ensures nothing spills out of the card */
+    text-align: center; /* Center the text */
+    padding: 1em; /* Padding inside the card */
+    display: flex; /* Flex layout for internal alignment */
+    flex-direction: column; /* Stack items vertically */
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.art-block h2 {
+    color: #333;
+    margin-top: 0.5em; /* Space above the title */
+}
+
+.art-block p {
+    color: #666;
+    font-size: 0.9em; /* Smaller font size for artist name */
+    margin-top: 0.25em; /* Space above the artist name */
 }

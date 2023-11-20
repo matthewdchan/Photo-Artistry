@@ -5,19 +5,6 @@
     border-radius: 10px;
 }
 
-/* Surrounds all art objects */
-.art-wrapper {
-    border: 10px solid blue;
-
-    display: flex;
-}
-
-/* An individual art object */
-.art-block {
-    background-color: red;
-    border: 10px solid darkred;
-}
-
 .newitem-wrapper {
     max-width: 400px;
     margin: auto;
