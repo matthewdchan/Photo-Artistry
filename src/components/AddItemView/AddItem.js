@@ -15,12 +15,11 @@ function AddItem(){
     return(
         <>
             <Header>
-                <Link to='/login'>Log In</Link>
+                <Link to='/auth-user'>Back</Link>
             </Header>
             <Main>
                 <p>THIS IS THE ADD ITEM PAGE</p>
                 <NewItem/>
-                <Link to='/auth-user'>Nevermind, return to authView</Link>
             </Main>
             <Footer />
         </>

@@ -16,7 +16,7 @@ function AuthUser(props){
     return (
         <>
             <Header>
-                <Link to='/login'>Log Out</Link>
+                <Link to='/non-auth-user'>Log Out</Link>
             </Header>
             <Main>
                 <Card className="art-wrapper">
