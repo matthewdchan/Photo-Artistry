@@ -12,6 +12,8 @@ import SignupPage from './components/SignupView/SignupPage';
 
 // Router
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { useState } from 'react';
 
 function App() {
   // Dummy Data
@@ -35,8 +37,8 @@ function App() {
         id: Math.random().toString()
     },
   ];
-  
-  [isloggedin, setIsLoggedIn] = useState(false); // [state, function
+
+ const [isloggedin, setIsLoggedIn] = useState(false); // [state, function
   // do something with this to fix it
 
   return (
