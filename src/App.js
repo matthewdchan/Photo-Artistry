@@ -35,6 +35,9 @@ function App() {
         id: Math.random().toString()
     },
   ];
+  
+  [isloggedin, setIsLoggedIn] = useState(false); // [state, function
+  // do something with this to fix it
 
   return (
     <Router>
