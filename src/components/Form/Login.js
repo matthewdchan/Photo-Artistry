@@ -5,7 +5,7 @@ import Card from '../Card';
 import UserAccount from '../data/UserAccount';
 import './Form.css';
 
-function Login () {
+function Login (props) {
 
     const [username, setuserName] = useState('');
     const [password, setPassword] = useState('');
@@ -24,6 +24,7 @@ function Login () {
             password: password,
             id: Math.random().toString(),
         };
+        props.onIsLoggedIn();
         console.log(newUser);
         setuserName('');
         setPassword('');
@@ -49,7 +50,7 @@ function Login () {
                     onChange={passwordChangeHandler}
                 />
                 <br></br>
-                <button type="submit">Sign In</button>
+                <button type="submit">Log In</button>
             </form>
         </Card>
     );  

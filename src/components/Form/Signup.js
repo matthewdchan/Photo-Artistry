@@ -5,7 +5,7 @@ import Card from '../Card';
 import UserAccount from '../data/UserAccount';
 import './Form.css';
 
-function Signin () {
+function Signin(props) {
 
     const [username, setuserName] = useState('');
     const [password, setPassword] = useState('');
@@ -24,6 +24,7 @@ function Signin () {
             password: password,
             id: Math.random().toString(),
         };
+        props.onIsLoggedIn();
         console.log(newUser);
         setuserName('');
         setPassword('');

@@ -13,10 +13,15 @@ import Card from '../Card';
 import Art from '../Art';
 
 function AuthUser(props){
+
+    const setIsLoggedInHandlerFalse = () => {
+        props.setIsLoggedIn(false);
+    }
+
     return (
         <>
             <Header>
-                <Link to='/non-auth-user'>Log Out</Link>
+                <Link to='/non-auth-user' onClick={setIsLoggedInHandlerFalse}>Log Out</Link>
                 <Link to='/add-item'>Add Art</Link>
             </Header>
             <Main>
