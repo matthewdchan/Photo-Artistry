@@ -12,8 +12,14 @@ import Footer from '../PageSections/Footer';
 import Card from '../Card';
 import Art from '../Art';
 
-function AuthUser(props){
+function AuthUser(props) {
 
+    if (props.isLoggedIn) {
+        console.log("isLoggedIn = true");
+    } else {
+        console.log("isLoggedIn = false");
+    } 
+    
     const setIsLoggedInHandlerFalse = () => {
         props.setIsLoggedIn(false);
     }

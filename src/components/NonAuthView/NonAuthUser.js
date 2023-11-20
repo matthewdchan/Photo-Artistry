@@ -13,7 +13,14 @@ import Card from '../Card';
 import Art from '../Art';
 
 
-function NonAuthUser(props){
+function NonAuthUser(props) {
+
+    if (props.isLoggedIn) {
+        console.log("isLoggedIn = true");
+    } else {
+        console.log("isLoggedIn = false");
+    } 
+
     return(
         <div>
             <Header>

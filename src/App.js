@@ -61,8 +61,10 @@ function App() {
       <div>
         <Routes>
           <Route exact path='/' element={<NonAuthUser artblocks={DUMMY_ARRAY}/>} />
-          <Route exact path='/non-auth-user' element={<NonAuthUser artblocks={DUMMY_ARRAY}/>} />
-          <Route path='/auth-user' element={isLoggedIn ? <AuthUser artblocks={DUMMY_ARRAY} setIsLoggedIn={setIsLoggedIn} /> : <Navigate to={'/login'} />} />
+          <Route exact path='/non-auth-user' element={<NonAuthUser artblocks={DUMMY_ARRAY} isLoggedIn={isLoggedIn} />} />
+          <Route path='/auth-user' element={isLoggedIn ? 
+            <AuthUser artblocks={DUMMY_ARRAY} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> 
+            : <Navigate to={'/login'} />} />
           <Route path='/add-item' element={<AddItem />} />
           <Route path='/login' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/signup' element={<SignupPage setIsLoggedIn={setIsLoggedIn} />} />

@@ -1,6 +1,7 @@
 // React
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // 
 import Card from '../Card';
@@ -9,6 +10,7 @@ import './Form.css';
 
 function Login (props) {
 
+    const navigate = useNavigate();
     const [username, setuserName] = useState('');
     const [password, setPassword] = useState('');
 
@@ -26,10 +28,11 @@ function Login (props) {
             password: password,
             id: Math.random().toString(),
         };
-        props.onIsLoggedIn();
+        props.onLogin();
         console.log(newUser);
         setuserName('');
         setPassword('');
+        navigate('/auth-user');
     };
 
 

@@ -8,7 +8,7 @@ import Footer from '../PageSections/Footer';
 import Signup from '../Form/Signup';
 
 
-function SignupPage(props){
+function SignupPage(props) {
 
     const setIsLoggedInHandler = () => {
         props.setIsLoggedIn(true);
@@ -20,7 +20,7 @@ function SignupPage(props){
                 <Link to='/non-auth-user'>Back</Link>
             </Header>
             <Main>
-                <Signup onIsLoggedIn={setIsLoggedInHandler} />
+                <Signup onSignup={setIsLoggedInHandler} />
             </Main>
             <Footer />
         </>

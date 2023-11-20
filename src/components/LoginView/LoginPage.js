@@ -11,7 +11,7 @@ import Main from '../PageSections/Main';
 import Footer from '../PageSections/Footer';
 import Login from '../Form/Login';
 
-function LoginPage(props){
+function LoginPage(props) {
 
     const setIsLoggedInHandler = () => {
         props.setIsLoggedIn(true);
@@ -24,8 +24,7 @@ function LoginPage(props){
             </Header>
             <Main>
                 <p>THIS IS THE LOGIN PAGE</p>
-                <Login onIsLoggedIn={setIsLoggedInHandler} />
-                <Link to='/auth-user' onClick={props.setIsLoggedIn(true)}>Successful Login (do later)</Link>
+                <Login onLogin={setIsLoggedInHandler} />
             </Main>
             <Footer />
         </>

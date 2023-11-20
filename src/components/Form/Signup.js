@@ -1,12 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Card from '../Card';
 import UserAccount from '../data/UserAccount';
 import './Form.css';
 
-function Signin(props) {
+function Signup(props) {
 
+    const navigate = useNavigate();
     const [username, setuserName] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,10 +26,11 @@ function Signin(props) {
             password: password,
             id: Math.random().toString(),
         };
-        props.onIsLoggedIn();
+        props.onSignup();
         console.log(newUser);
         setuserName('');
         setPassword('');
+        navigate('/auth-user');
     };
 
 
@@ -55,4 +58,4 @@ function Signin(props) {
         </Card>
     );  
 }
-export default Signin;
+export default Signup;
