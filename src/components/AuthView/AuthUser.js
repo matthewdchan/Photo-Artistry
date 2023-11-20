@@ -17,6 +17,7 @@ function AuthUser(props){
         <>
             <Header>
                 <Link to='/non-auth-user'>Log Out</Link>
+                <Link to='/add-item'>Add Art</Link>
             </Header>
             <Main>
                 <Card className="art-wrapper">
@@ -31,7 +32,6 @@ function AuthUser(props){
                     ))}
                 </Card>
                 <p>THIS IS THE AUTH USER PAGE</p>
-                <Link to='/add-item'>+ Add Item</Link>
             </Main>
             <Footer />
         </>
