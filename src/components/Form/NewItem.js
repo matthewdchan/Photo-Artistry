@@ -21,14 +21,21 @@ function NewItem () {
     };
 
     const submitHandler = (event) => {
+        // prevent default
         event.preventDefault();
+
+        // build new item
         const newItem = {
             name: name,
             img: img,
             artist: artist,
             id: Math.random().toString(),
         };
+
+        // console.log for now
         console.log(newItem);
+
+        // clear fields
         setName('');
         setImg('');
         setArtist('');
