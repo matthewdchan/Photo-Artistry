@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Main from '../Main';
 import Footer from '../Footer';
+import NewItem from '../Form/NewItem';
 
 function AddItem(){
     return(
@@ -18,6 +19,7 @@ function AddItem(){
             </Header>
             <Main>
                 <p>THIS IS THE ADD ITEM PAGE</p>
+                <NewItem/>
                 <Link to='/auth-user'>Nevermind, return to authView</Link>
             </Main>
             <Footer />
