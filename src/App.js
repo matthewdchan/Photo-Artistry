@@ -17,6 +17,7 @@ import React from 'react';
 import { useState } from 'react';
 
 function App() {
+
   // Dummy Data
   const DUMMY_ARRAY = [
     {

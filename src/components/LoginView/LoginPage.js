@@ -25,7 +25,7 @@ function LoginPage(props){
             <Main>
                 <p>THIS IS THE LOGIN PAGE</p>
                 <Login onIsLoggedIn={setIsLoggedInHandler} />
-                <Link to='/auth-user' onclick={props.setIsLoggedIn(true)}>Successful Login (do later)</Link>
+                <Link to='/auth-user' onClick={props.setIsLoggedIn(true)}>Successful Login (do later)</Link>
             </Main>
             <Footer />
         </>
