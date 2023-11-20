@@ -6,11 +6,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Needed Components
-import Header from '../Header';
-import Main from '../Main';
+import Header from '../PageSections/Header';
+import Main from '../PageSections/Main';
+import Footer from '../PageSections/Footer';
 import Card from '../Card';
 import Art from '../Art';
-import Footer from '../Footer';
 
 function AuthUser(props){
     return (

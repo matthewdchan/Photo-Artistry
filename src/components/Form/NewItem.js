@@ -36,7 +36,7 @@ function NewItem () {
 
 
     return (
-        <Card className="form-wrapper">
+        <Card className="newitem-wrapper">
             <form onSubmit={submitHandler}>
                 <label>Name</label>
                 <input

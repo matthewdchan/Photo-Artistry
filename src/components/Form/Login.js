@@ -31,7 +31,7 @@ function Login () {
 
 
     return (
-        <Card className="form-wrapper">
+        <Card className="signin-wrapper">
             <form onSubmit={submitHandler}>
                 <label>Username</label>
                 <input
@@ -49,7 +49,7 @@ function Login () {
                     onChange={passwordChangeHandler}
                 />
                 <br></br>
-                <button type="submit">Sign Up</button>
+                <button type="submit">Sign In</button>
             </form>
         </Card>
     );  

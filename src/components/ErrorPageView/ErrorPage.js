@@ -5,9 +5,9 @@ import './ErrorPage.css';
 import React from 'react';
 
 // Needed Components
-import Header from '../Header';
-import Main from '../Main';
-import Footer from '../Footer';
+import Header from '../PageSections/Header';
+import Main from '../PageSections/Main';
+import Footer from '../PageSections/Footer';
 
 
 function ErrorPage(){
