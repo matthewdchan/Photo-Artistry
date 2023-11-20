@@ -45,6 +45,7 @@ function NewItem () {
                     value={name}
                     onChange={nameChangeHandler}
                 />
+                <br></br>
                 <label>Image Link</label>
                 <input
                     id="img"
@@ -52,6 +53,7 @@ function NewItem () {
                     value={img}
                     onChange={imgChangeHandler}
                 />
+                 <br></br>
                 <label>Artist</label>
                 <input
                     id="artist"
@@ -59,6 +61,7 @@ function NewItem () {
                     value={artist}
                     onChange={artistChangeHandler}
                 />
+                 <br></br>
                 <button type="submit">Add Art</button>
             </form>
         </Card>

@@ -17,3 +17,7 @@
     background-color: red;
     border: 10px solid darkred;
 }
+
+.form-wrapper {
+    border: 10px solid green;
+}

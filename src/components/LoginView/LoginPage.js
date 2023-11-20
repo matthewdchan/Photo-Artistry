@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Main from '../Main';
 import Footer from '../Footer';
+import Login from '../Form/Login';
 
 function LoginPage(){
     return(
@@ -18,6 +19,7 @@ function LoginPage(){
             </Header>
             <Main>
                 <p>THIS IS THE LOGIN PAGE</p>
+                <Login />
                 <Link to='/auth-user'>Successful Signin (do later)</Link>
             </Main>
             <Footer />
