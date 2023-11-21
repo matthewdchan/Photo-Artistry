@@ -29,19 +29,19 @@ function App() {
     {
         name: 'name2',
         artist: 'creator2',
-        img: 'https://www.thesun.co.uk/wp-content/uploads/2019/08/VP-COMP-CATS-v3.jpg?w=620',
+        img: 'https://i.pinimg.com/736x/87/be/25/87be25487e6cd1a0fc7a3518544e876a.jpg',
         id: Math.random().toString()
     },
     {
         name: 'name3',
         artist: 'creator3',
-        img: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg',
+        img: 'https://i.pinimg.com/736x/9e/2a/87/9e2a8718e2a8ee4bc45f26955eabb7e4.jpg',
         id: Math.random().toString()
     },
     {
         name: 'name4',
         artist: 'creator4',
-        img: 'https://static.toiimg.com/thumb/msid-77454049,width-400,resizemode-4/77454049.jpg',
+        img: 'https://i.pinimg.com/736x/32/58/0d/32580d7766d719e12ffda84a11ce53b7.jpg',
         id: Math.random().toString()
     }
   ];
