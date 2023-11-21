@@ -1,7 +1,7 @@
 // React
 import React from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // 
 import Card from '../Card';
@@ -56,6 +56,12 @@ function Login (props) {
                 />
                 <br></br>
                 <button type="submit">Log In</button>
+                <div className='signup-link'>
+                    <p>
+                        Don't have an account?&nbsp;
+                        <Link to='/signup'>Sign up here</Link>
+                    </p>
+                </div>
             </form>
         </Card>
     );  
