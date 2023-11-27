@@ -38,11 +38,11 @@ function AuthUser(props) {
                         name={artblock.name}
                         artist={artblock.artist}
                         img={artblock.img}
+                        date={artblock.date}
                         key={artblock.id}
                         />
                     ))}
                 </Card>
-                <p>THIS IS THE AUTH USER PAGE</p>
             </Main>
             <Footer />
         </>

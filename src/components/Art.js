@@ -13,6 +13,7 @@ function Art(props){
             <h2>{ props.name }</h2>
             <img src={props.img} alt="art piece" />
             <p> { props.artist } </p>
+            <p> { props.date } </p>
         </Card>
     );
 }

@@ -21,27 +21,31 @@ function App() {
   // Dummy Data
   const DUMMY_ARRAY = [
     {
-        name: 'name',
-        artist: 'creator',
-        img: 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg',
+        name: 'Girl with a Pearl Earring',
+        artist: 'Jonannes Vermeer',
+        img: 'https://cdn.britannica.com/33/194733-050-4CF75F31/Girl-with-a-Pearl-Earring-canvas-Johannes-1665.jpg',
+        date: '1665',
         id: Math.random().toString()
     },
     {
-        name: 'name2',
-        artist: 'creator2',
+        name: 'Wanderer above the Sea of Fog',
+        artist: 'Caspar David Friedrich',
+        img: 'https://media.timeout.com/images/105222684/1372/1029/image.jpg',
+        date: '1818',
+        id: Math.random().toString()
+    },
+    {
+        name: 'Me IRL',
+        artist: 'Unknown',
         img: 'https://i.pinimg.com/736x/87/be/25/87be25487e6cd1a0fc7a3518544e876a.jpg',
+        date: '-',
         id: Math.random().toString()
     },
     {
-        name: 'name3',
-        artist: 'creator3',
-        img: 'https://i.pinimg.com/736x/9e/2a/87/9e2a8718e2a8ee4bc45f26955eabb7e4.jpg',
-        id: Math.random().toString()
-    },
-    {
-        name: 'name4',
-        artist: 'creator4',
-        img: 'https://i.pinimg.com/736x/32/58/0d/32580d7766d719e12ffda84a11ce53b7.jpg',
+        name: 'Impression, Sunrise',
+        artist: 'Claude Monet',
+        img: 'https://media.timeout.com/images/105222683/1372/1029/image.jpg',
+        date: '1872-1874',
         id: Math.random().toString()
     }
   ];

@@ -1,7 +1,7 @@
 /* Main header */
 header {
     background-color: #e6e6fa;
-    min-height: 2em;
+    min-height: fit-content;
     padding: 5px 15px;
 
     display: flex;

@@ -35,6 +35,7 @@ function NonAuthUser(props) {
                         name={artblock.name}
                         artist={artblock.artist}
                         img={artblock.img}
+                        date={artblock.date}
                         key={artblock.id}
                         />
                     ))}
