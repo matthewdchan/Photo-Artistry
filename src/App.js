@@ -72,7 +72,7 @@ function App() {
           <Route path='/add-item' element={<AddItem />} />
           <Route path='/login' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/signup' element={<SignupPage setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path='*' element={<ErrorPage />} />
+          <Route path='*' element={<ErrorPage setIsLoggedIn={setIsLoggedIn}/>} />
         </Routes>
       </div>
     </Router>

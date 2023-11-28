@@ -23,7 +23,6 @@ function LoginPage(props) {
                 <Link to='/non-auth-user'>View as Guest</Link>
             </Header>
             <Main>
-                <p>THIS IS THE LOGIN PAGE</p>
                 <Login onLogin={setIsLoggedInHandler} />
             </Main>
             <Footer />
