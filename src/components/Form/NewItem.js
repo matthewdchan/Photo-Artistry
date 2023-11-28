@@ -57,6 +57,7 @@ function NewItem () {
                     type="text"
                     value={name}
                     onChange={nameChangeHandler}
+                    required
                 />
                 <br></br>
                 <label>Image Link</label>
@@ -65,6 +66,7 @@ function NewItem () {
                     type="text"
                     value={img}
                     onChange={imgChangeHandler}
+                    required
                 />
                  <br></br>
                 <label>Artist</label>
