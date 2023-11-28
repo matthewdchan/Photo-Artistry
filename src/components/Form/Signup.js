@@ -43,6 +43,7 @@ function Signup(props) {
                     type="text"
                     value={username}
                     onChange={usernameChangeHandler}
+                    required
                 />
                 <br></br>
                 <label>Password</label>
@@ -51,6 +52,7 @@ function Signup(props) {
                     type="text"
                     value={password}
                     onChange={passwordChangeHandler}
+                    required
                 />
                 <br></br>
                 <button type="submit">Create Account</button>

@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-// 
+// Needed Components
 import Card from '../Card';
 import UserAccount from '../data/UserAccount';
 import './Form.css';
@@ -45,6 +45,7 @@ function Login (props) {
                     type="text"
                     value={username}
                     onChange={usernameChangeHandler}
+                    required
                 />
                 <br></br>
                 <label>Password</label>
@@ -53,6 +54,7 @@ function Login (props) {
                     type="text"
                     value={password}
                     onChange={passwordChangeHandler}
+                    required
                 />
                 <br></br>
                 <button type="submit">Log In</button>
