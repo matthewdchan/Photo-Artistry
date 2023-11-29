@@ -8,6 +8,7 @@ import AuthUser from './components/AuthView/AuthUser';
 import LoginPage from './components/LoginView/LoginPage';
 import ErrorPage from './components/ErrorPageView/ErrorPage';
 import SignupPage from './components/SignupView/SignupPage';
+import MySubmissions from './components/SubmissionView/MySubmissions';
 
 
 // Router
@@ -70,6 +71,7 @@ function App() {
             <AuthUser artblocks={DUMMY_ARRAY} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> 
             : <Navigate to={'/login'} />} />
           <Route path='/add-item' element={<AddItem />} />
+          <Route path='/my-submissions' element={<MySubmissions artblocks={DUMMY_ARRAY}          isLoggedIn={isLoggedIn} />} />
           <Route path='/login' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/signup' element={<SignupPage setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='*' element={<ErrorPage setIsLoggedIn={setIsLoggedIn}/>} />

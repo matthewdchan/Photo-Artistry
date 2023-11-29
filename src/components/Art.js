@@ -18,16 +18,12 @@ function Art(props){
             <img src={props.img} alt="art piece" />
             <p> { props.artist } </p>
             <p> { props.date } </p>
-            { isLoggedIn ? 
-            (
-                <>
-                <div className='button-group'>
-                    <Button>Edit</Button> 
-                    <Button>Delete</Button>
+            {props.showEditDelete && (
+                <div className="art-actions">
+                    <Button onClick={props.onEdit}>Edit</Button>
+                    <Button onClick={props.onDelete}>Delete</Button>
                 </div>
-                </>
-            ) 
-            : null }
+            )}
         </Card>
     );
 }

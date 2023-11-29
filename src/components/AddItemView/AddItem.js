@@ -15,7 +15,7 @@ function AddItem(){
     return(
         <>
             <Header>
-                <Link to='/auth-user'>Back</Link>
+                <Link to='/auth-user'>Home</Link>
             </Header>
             <Main>
                 <p>THIS IS THE ADD ITEM PAGE</p>
