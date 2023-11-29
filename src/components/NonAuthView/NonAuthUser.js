@@ -31,12 +31,13 @@ function NonAuthUser(props) {
                 <Card className="art-wrapper">
                     {props.artblocks.map((artblock) => (
                         <Art
-                        className="art-block"
-                        name={artblock.name}
-                        artist={artblock.artist}
-                         img={artblock.img}
-                        date={artblock.date}
-                        key={artblock.id}
+                            className="art-block"
+                            name={artblock.name}
+                            artist={artblock.artist}
+                            img={artblock.img}
+                            date={artblock.date}
+                            key={artblock.id}
+                            isLoggedIn={props.isLoggedIn}
                         />
                     ))}
                 </Card>

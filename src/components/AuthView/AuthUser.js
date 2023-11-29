@@ -5,12 +5,14 @@ import './AuthUser.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 // Needed Components
 import Header from '../PageSections/Header';
 import Main from '../PageSections/Main';
 import Footer from '../PageSections/Footer';
 import Card from '../Card';
 import Art from '../Art';
+import Button from '../Button';
 
 function AuthUser(props) {
 
@@ -40,6 +42,7 @@ function AuthUser(props) {
                         img={artblock.img}
                         date={artblock.date}
                         key={artblock.id}
+                        isLoggedIn={props.isLoggedIn}
                         />
                     ))}
                 </Card>
