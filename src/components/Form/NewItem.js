@@ -9,6 +9,7 @@ function NewItem () {
     const [name, setName] = useState('');
     const [img, setImg] = useState('');
     const [artist, setArtist] = useState('');
+    const [date, setDate] = useState('');
 
     const nameChangeHandler = (event) => {
         setName(event.target.value);
@@ -18,6 +19,9 @@ function NewItem () {
     };
     const artistChangeHandler = (event) => {    
         setArtist(event.target.value);
+    };
+    const dateChangeHandler = (event) => {
+        setDate(event.target.value);
     };
 
     const submitHandler = (event) => {
@@ -29,6 +33,7 @@ function NewItem () {
             name: name,
             img: img,
             artist: artist,
+            date: date,
             id: Math.random().toString(),
         };
 
@@ -39,6 +44,7 @@ function NewItem () {
         setName('');
         setImg('');
         setArtist('');
+        setDate('');
     };
 
 
@@ -71,6 +77,14 @@ function NewItem () {
                     onChange={artistChangeHandler}
                 />
                  <br></br>
+                 <label>Date</label>
+                <input
+                    id="date"
+                    type="text"
+                    value={date}
+                    onChange={dateChangeHandler}
+                />
+                <br></br>
                 <button type="submit">Add Art</button>
             </form>
         </Card>
