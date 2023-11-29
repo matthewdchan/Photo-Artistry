@@ -21,7 +21,7 @@ function Art(props){
             { isLoggedIn ? 
             (
                 <>
-                <div class='button-group'>
+                <div className='button-group'>
                     <Button>Edit</Button> 
                     <Button>Delete</Button>
                 </div>
