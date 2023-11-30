@@ -21,12 +21,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-      "start": "concurrently \"npm run server\" \"npm run client\"",
-      "server": "nodemon server/server.js",
-      "client": "react-scripts start",
-      "build": "react-scripts build",
-      "test": "react-scripts test",
-      "eject": "react-scripts eject"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server/server.js",
+    "client": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -47,9 +47,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
     "concurrently": "^8.2.2",
     "nodemon": "^3.0.1",
-    "webpack": "^5.89.0",
-    "@babel/plugin-proposal-private-property-in-object": "^7.16.7"
+    "webpack": "^5.89.0"
   }
 }
