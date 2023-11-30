@@ -1,15 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
+// packaging form data into json object
+import { Axios } from 'axios';
 
 import Card from '../Card';
 import './Form.css';
 
 function NewItem () {
-
+    // all states for object attributes
     const [name, setName] = useState('');
     const [img, setImg] = useState('');
     const [artist, setArtist] = useState('');
     const [date, setDate] = useState('');
+
+    // using axios
+    const axios = require('axios').default;
 
     const nameChangeHandler = (event) => {
         setName(event.target.value);
@@ -36,6 +41,8 @@ function NewItem () {
             date: date,
             id: Math.random().toString(),
         };
+
+        
 
         // console.log for now
         console.log(newItem);
