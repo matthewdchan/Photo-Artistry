@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 // Needed Components
 import Card from '../Card';
-import UserAccount from '../data/UserAccount';
+import UserAccount from '../models/UserAccount';
 import './Form.css';
 
 function Login (props) {

@@ -18,7 +18,6 @@ function AddItem(){
                 <Link to='/auth-user'>Home</Link>
             </Header>
             <Main>
-                <p>THIS IS THE ADD ITEM PAGE</p>
                 <NewItem/>
             </Main>
             <Footer />
