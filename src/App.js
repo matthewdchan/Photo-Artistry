@@ -17,34 +17,6 @@ import { Navigate } from 'react-router-dom';
 import React from 'react';
 import { useState } from 'react';
 
-// Unsure where this code is supposed to go. Also it causes errors. Credentials might need to be changed.
-/* 
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
-const mongoose = require('mongoose');
-const cors = require('cors');
-const arts = require('./routes/arts');
-
-app.use(cors({ origin: true, credentials: true }));
-app.use(express.json( { extended: false }));
-app.use('/arts', arts);
-
-const conn_str = `mongodb+srv://peppapigs0:21xXzYZY0PKyWopi@cluster0.deaupvj.mongodb.net/?retryWrites=true&w=majority`;
-mongoose.set('strictQuery', false);
-mongoose.connect(conn_str, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-})
-    .then(() => {
-        app.listen(port);
-        console.log("\nMongoDB connection successful...");
-    })
-    .catch((err) => {
-        console.log(`Error in DB connection ${err}`);
-    })
-*/
-
 function App() {
 
   // Dummy Data
