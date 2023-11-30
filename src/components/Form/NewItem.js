@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // for navigation back to orig view
 // packaging form data into json object
-import { Axios } from 'axios';
+import axios from 'axios';
 
 import Card from '../Card';
 import './Form.css';
@@ -13,8 +14,7 @@ function NewItem () {
     const [artist, setArtist] = useState('');
     const [date, setDate] = useState('');
 
-    // using axios
-    const axios = require('axios').default;
+    const navigate = useNavigate();
 
     const nameChangeHandler = (event) => {
         setName(event.target.value);
@@ -42,8 +42,18 @@ function NewItem () {
             id: Math.random().toString(),
         };
 
-        
+        axios
+        .post('http://localhost:5000/arts', newItem)
+        .then((res) => {
+            console.log(res);
+            console.log(res.data);
+            navigate('/');
+        })
+        .catch((err) => {
+            console.log('Error in creating new item');
+        });
 
+        
         // console.log for now
         console.log(newItem);
 
@@ -52,7 +62,8 @@ function NewItem () {
         setImg('');
         setArtist('');
         setDate('');
-    };
+      
+    }
 
 
     return (
