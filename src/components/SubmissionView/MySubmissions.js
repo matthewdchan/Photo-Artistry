@@ -29,7 +29,7 @@ const MySubmissions = (props) => {
                 <Link to='/auth-user'>Home</Link>
             </Header>
             <Main>
-                <h2>My Submissions</h2>
+                <h2>View your custom submissions here</h2>
                 <Card className="art-wrapper">
                     {props.artblocks.map((artblock) => (
                         <Art

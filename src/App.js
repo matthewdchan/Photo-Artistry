@@ -59,7 +59,7 @@ function App() {
     {
         name: 'Wanderer above the Sea of Fog',
         artist: 'Caspar David Friedrich',
-        img: 'https://media.timeout.com/images/105222684/1372/1029/image.jpg',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg',
         date: '1818',
         id: Math.random().toString()
     },
@@ -73,7 +73,7 @@ function App() {
     {
         name: 'Impression, Sunrise',
         artist: 'Claude Monet',
-        img: 'https://media.timeout.com/images/105222683/1372/1029/image.jpg',
+        img: 'https://smarthistory.org/wp-content/uploads/2023/07/dezoomify-result-27-scaled.jpg',
         date: '1872-1874',
         id: Math.random().toString()
     }

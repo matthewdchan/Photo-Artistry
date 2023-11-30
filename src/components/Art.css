@@ -1,12 +1,5 @@
 /* STYLES FOR EACH "ART" BLOCK */
 
-.art-block img {
-    max-width: 100%;
-    min-height: 400px;
-    object-fit: cover;
-    overflow: hidden;
-}
-
 .art-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -32,14 +25,25 @@
 }
 
 .art-block h2 {
-    max-width: 80%;
+    max-width: 90%;
     color: #333;
-    margin-top: 0.5em; 
     margin: 0.5em auto; /* title spacing */
 }
 
+.art-block img {
+    max-width: 100%;
+    height: 400px;
+    box-shadow: 0px 3px 15px grey;
+    object-fit: cover;
+    margin: 5px;
+}
+
 .art-block p {
-    color: #666;
+    color: #5b5b5b;
     font-size: 0.9em; /* Smaller font size for artist name */
     margin: 0.25em auto; /* Space above the artist name */
+}
+
+.art-block button {
+    margin: 5px 10px;
 }
