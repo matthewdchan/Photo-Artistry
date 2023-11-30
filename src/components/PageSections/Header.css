@@ -1,8 +1,8 @@
 /* Main header */
 header {
     background-color: #e6e6fa;
-    min-height: fit-content;
-    padding: 5px 15px;
+    max-height: fit-content;
+    padding: 0px 15px;
 
     display: flex;
     align-items: center;
@@ -13,6 +13,8 @@ header h2 {
     text-shadow: 2px 2px 5px #2e2bd4;
     font-style: italic;
 }
+
+
 
 /* Button Wrapper */
 .button-wrapper { 
@@ -32,11 +34,9 @@ header a {
 header a:link {
     color: blue;
 }
-
 header a:hover {
     text-decoration: underline;
 }
-
 header a:visited {
     color: purple;
 }
