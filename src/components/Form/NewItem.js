@@ -75,6 +75,7 @@ function NewItem () {
                     type="text"
                     value={artist}
                     onChange={artistChangeHandler}
+                    required
                 />
                  <br></br>
                  <label>Date</label>
@@ -83,6 +84,7 @@ function NewItem () {
                     type="text"
                     value={date}
                     onChange={dateChangeHandler}
+                    required
                 />
                 <br></br>
                 <button type="submit">Add Art</button>
