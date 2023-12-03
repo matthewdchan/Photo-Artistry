@@ -23,6 +23,7 @@ read thru axios slides on editing
 and deleting
 a item
 */
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const handleEdit = (id) => {
         // Logic for handling edit
         console.log('Editing artblock with id', id);
@@ -30,7 +31,7 @@ a item
         // add rest
     };
 
-    // doesnt seem to work
+    // doesnt seem to work/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const handleDelete = (id) => {
         // Logic for handling delete
         console.log('Deleting artblock with id', id);
@@ -38,6 +39,8 @@ a item
             axios
                 .delete(`http://localhost:5000/arts/${id}`)
                 .then((res) => {
+                    const updatedArtblocks = props.artblocks.filter((artblock) => artblock._id !== id);
+                    props.setArtblocks(updatedArtblocks);
                     navigate('/auth-user'); // maybe change this
                 })
                 .catch(error => {
@@ -62,10 +65,10 @@ a item
                         artist={artblock.artist}
                         img={artblock.img}
                         date={artblock.date}
-                        key={artblock.id}
+                        key={artblock.identifier}
                         showEditDelete={true}
-                        onEdit= {() => handleEdit(artblock.id)}
-                        onDelete={() => handleDelete(artblock.id)}
+                        onEdit= {() => handleEdit(artblock._id)}
+                        onDelete={() => handleDelete(artblock._id)}
                         />
                     ))}
                 </Card>

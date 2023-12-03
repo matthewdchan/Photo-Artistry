@@ -36,7 +36,7 @@ function NonAuthUser(props) {
                             artist={artblock.artist}
                             img={artblock.img}
                             date={artblock.date}
-                            key={artblock.id}
+                            key={artblock.identifier}
                             isLoggedIn={props.isLoggedIn}
                         />
                     ))}

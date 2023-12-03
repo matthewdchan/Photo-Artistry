@@ -7,7 +7,7 @@ import axios from 'axios';
 import Card from '../Card';
 import './Form.css';
 
-function NewItem () {
+function NewItem (props) {
     // all states for object attributes
     const [name, setName] = useState('');
     const [img, setImg] = useState('');
@@ -39,7 +39,8 @@ function NewItem () {
             img: img,
             artist: artist,
             date: date,
-            id: Math.random().toString(),
+            identifier: "1",
+            // unique identifers's are created by mongoDB inside the arts.js routing
         };
 
         axios
@@ -47,6 +48,7 @@ function NewItem () {
         .then((res) => {
             console.log(res);
             console.log(res.data);
+            props.setArtblocks((prevArtblocks) => [...prevArtblocks, res.data]);
             navigate('/');
         })
         .catch((err) => {

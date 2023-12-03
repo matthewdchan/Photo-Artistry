@@ -1,20 +1,26 @@
-import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // for navigation back to orig view
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 // packaging form data into json object
 import axios from 'axios';
 
 import Card from '../Card';
 import './Form.css';
+/*
+the form should auto populate with the values for the given art from the database
+and allow the user to edit the fields then submit the form which sends an axios request
+*/
+// Does not work currently///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function EditItem (props) {
+    const { id } = useParams();
+    const navigate = useNavigate();
 
-function NewItem () {
     // all states for object attributes
     const [name, setName] = useState('');
     const [img, setImg] = useState('');
     const [artist, setArtist] = useState('');
     const [date, setDate] = useState('');
-
-    const navigate = useNavigate();
 
     const nameChangeHandler = (event) => {
         setName(event.target.value);
@@ -29,40 +35,67 @@ function NewItem () {
         setDate(event.target.value);
     };
 
+    useEffect(() => {
+        const encodedId = encodeURIComponent(id);
+        
+        // server request to get the specific artwork and populate form
+        // does not work currently
+        axios
+        .get(`http://localhost:5000/arts/${encodedId}`)
+        .then((res) => {
+            const data = res.data;
+            console.log(data);
+
+            setName(data.name);
+            setImg(data.img);
+            setArtist(data.artist);
+            setDate(data.date);
+        })
+        .catch((err) => {
+            console.log('Error in retrieving item');
+        });
+    }, [id]);
+
+
     const submitHandler = (event) => {
         // prevent default
         event.preventDefault();
 
-        // build new item
-        const newItem = {
+        // build updated data from user
+        const data = {
             name: name,
             img: img,
             artist: artist,
             date: date,
-            id: Math.random().toString(),
         };
 
+        // store updated data to original object in database
         axios
-        .post('http://localhost:5000/arts', newItem)
+        .put(`http://localhost:5000/arts/${id}`, data)
         .then((res) => {
             console.log(res);
             console.log(res.data);
+            const updatedArtblocks = props.artblocks.map((artblock) => {
+                return artblock._id === id ? {...artblock, ...data} : artblock;
+            });
+            props.setArtblocks(updatedArtblocks);
             navigate('/');
         })
         .catch((err) => {
-            console.log('Error in creating new item');
+            console.log('Error in updating item');
         });
 
         
         // console.log for now
-        console.log(newItem);
+        console.log(data);
 
         // clear fields
+        /*
         setName('');
         setImg('');
         setArtist('');
         setDate('');
-      
+        */
     }
 
 
@@ -105,9 +138,9 @@ function NewItem () {
                     required
                 />
                 <br></br>
-                <button type="submit">Add Art</button>
+                <button type="submit">Submit Changes</button>
             </form>
         </Card>
     );  
 }
-export default NewItem;
+export default EditItem;

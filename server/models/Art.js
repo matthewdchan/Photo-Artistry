@@ -17,6 +17,11 @@ const ArtSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    identifier: {
+        type: String,
+        required: true,
+    },
+
 
     }
 );

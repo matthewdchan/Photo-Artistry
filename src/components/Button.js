@@ -8,7 +8,9 @@ import React from 'react';
 function Button(props){
     return(
     <>
-        <button>{ props.children }</button>
+        <button onClick={props.onClick}>
+            { props.children }
+        </button>
     </>
     );
 }
