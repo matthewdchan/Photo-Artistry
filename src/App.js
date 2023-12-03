@@ -18,7 +18,7 @@ import { useArtContext, ArtProvider } from './ArtContext';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import axios from 'axios';
 import UserContext from './context/UserContext';
@@ -112,7 +112,7 @@ function App() {
            ( <AuthUser  setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}  /> )
             : <Navigate to={'/login'} />}  />
           <Route path='/add-item' element={<AddItem />} />
-          <Route path='/edit-item/:id' element={<UpdateItem artblocks={artblocks}   />}  />
+          <Route path='/edit-item/:id' element={<UpdateItem  />}  />
           <Route path='/my-submissions' element={<MySubmissions        isLoggedIn={isLoggedIn} />} />
           <Route path='/login' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/signup' element={<SignupPage setIsLoggedIn={setIsLoggedIn} />} />
