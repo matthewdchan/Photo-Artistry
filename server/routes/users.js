@@ -1,4 +1,10 @@
+// init
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User');
 var bodyParser = require("body-parser");
+
+// load model
+const User = require('../models/User');
+
+// export router
+module.exports(router);

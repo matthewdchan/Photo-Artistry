@@ -11,6 +11,7 @@ function Signup(props) {
     const navigate = useNavigate();
     const [username, setuserName] = useState('');
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
 
     const usernameChangeHandler = (event) => {
         setuserName(event.target.value);
@@ -18,18 +19,29 @@ function Signup(props) {
     const passwordChangeHandler = (event) => {
         setPassword(event.target.value);
     };
+    const emailChangeHandler = (event) => {
+        setEmail(event.target.value);
+    }
 
     const submitHandler = (event) => {
         event.preventDefault();
+
+        // package
         const newUser = {
             usernamename: username,
             password: password,
+            email: email,
             id: Math.random().toString(),
         };
+
         props.onSignup();
         console.log(newUser);
+
+        // clear fields 
         setuserName('');
         setPassword('');
+        setEmail('');
+
         navigate('/auth-user');
     };
 
@@ -37,6 +49,15 @@ function Signup(props) {
     return (
         <Card className="signin-wrapper">
             <form onSubmit={submitHandler}>
+                <label>Email</label>
+                <input
+                    id="email"
+                    type="text"
+                    value={email}
+                    onChange={emailChangeHandler}
+                    required
+                />
+                <br></br>
                 <label>Username</label>
                 <input
                     id="username"
