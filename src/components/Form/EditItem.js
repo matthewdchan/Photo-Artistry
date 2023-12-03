@@ -71,7 +71,7 @@ function EditItem (props) {
 
         // store updated data to original object in database
         axios
-        .put(`http://localhost:5000/arts/${id}`, data)
+        .put(`http://localhost:4000/arts/${id}`, data)
         .then((res) => {
             console.log(res);
             console.log(res.data);

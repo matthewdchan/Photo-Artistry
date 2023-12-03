@@ -37,7 +37,7 @@ a item
         console.log('Deleting artblock with id', id);
        
             axios
-                .delete(`http://localhost:5000/arts/${id}`)
+                .delete(`http://localhost:4000/arts/${id}`)
                 .then((res) => {
                     const updatedArtblocks = props.artblocks.filter((artblock) => artblock._id !== id);
                     props.setArtblocks(updatedArtblocks);
