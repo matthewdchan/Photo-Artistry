@@ -9,6 +9,7 @@ import LoginPage from './components/LoginView/LoginPage';
 import ErrorPage from './components/ErrorPageView/ErrorPage';
 import SignupPage from './components/SignupView/SignupPage';
 import MySubmissions from './components/SubmissionView/MySubmissions';
+import EditItem from './components/EditItemView/UpdateItem';
 
 
 // Router
@@ -19,6 +20,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 import axios from 'axios';
+import UpdateItem from './components/EditItemView/UpdateItem';
 
 function App() {
 
@@ -85,6 +87,7 @@ function App() {
             <AuthUser artblocks={artblocks} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> 
             : <Navigate to={'/login'} />} />
           <Route path='/add-item' element={<AddItem />} />
+          <Route path='/edit-item' element={<UpdateItem />} />
           <Route path='/my-submissions' element={<MySubmissions artblocks={artblocks}          isLoggedIn={isLoggedIn} />} />
           <Route path='/login' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/signup' element={<SignupPage setIsLoggedIn={setIsLoggedIn} />} />

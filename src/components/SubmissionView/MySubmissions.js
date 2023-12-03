@@ -12,15 +12,39 @@ import Footer from '../PageSections/Footer';
 import Card from '../Card';
 import Art from '../Art';
 import button from '../Button';
+import { useNavigate } from 'react-router-dom';
+
+import axios from 'axios';
 
 const MySubmissions = (props) => {
-
+    const navigate = useNavigate();
+/*
+read thru axios slides on editing
+and deleting
+a item
+*/
     const handleEdit = (id) => {
         // Logic for handling edit
+        console.log('Editing artblock with id', id);
+        navigate(`/edit-item/${id}`); // -> move to the edit item form for editing
+        // add rest
     };
 
+    // doesnt seem to work
     const handleDelete = (id) => {
         // Logic for handling delete
+        console.log('Deleting artblock with id', id);
+       
+            axios
+                .delete(`http://localhost:5000/arts/${id}`)
+                .then((res) => {
+                    navigate('/auth-user'); // maybe change this
+                })
+                .catch(error => {
+                    console.log('Error on deleting artblock', error);
+                });
+
+        
     };
 
     return(
@@ -40,7 +64,7 @@ const MySubmissions = (props) => {
                         date={artblock.date}
                         key={artblock.id}
                         showEditDelete={true}
-                        onEdit={() => handleEdit(artblock.id)}
+                        onEdit= {() => handleEdit(artblock.id)}
                         onDelete={() => handleDelete(artblock.id)}
                         />
                     ))}
