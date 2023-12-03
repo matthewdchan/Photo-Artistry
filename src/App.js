@@ -16,6 +16,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import React from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
+
+import axios from 'axios';
 
 function App() {
 
@@ -61,17 +64,28 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(isLoggedInDefault); // [state, function
   // do something with this to fix it
 
+  const [artblocks, setArtblocks] = useState([]);
+  useEffect(() => {
+    axios.get('http://localhost:5000/arts')
+    .then((response) => {
+      setArtblocks(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }, []);
+
   return (
     <Router>
       <div>
         <Routes>
-          <Route exact path='/' element={<NonAuthUser artblocks={DUMMY_ARRAY}/>} />
-          <Route exact path='/non-auth-user' element={<NonAuthUser artblocks={DUMMY_ARRAY} isLoggedIn={isLoggedIn} />} />
+          <Route exact path='/' element={<NonAuthUser artblocks={artblocks}/>} />
+          <Route exact path='/non-auth-user' element={<NonAuthUser artblocks={artblocks} isLoggedIn={isLoggedIn} />} />
           <Route path='/auth-user' element={isLoggedIn ? 
-            <AuthUser artblocks={DUMMY_ARRAY} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> 
+            <AuthUser artblocks={artblocks} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> 
             : <Navigate to={'/login'} />} />
           <Route path='/add-item' element={<AddItem />} />
-          <Route path='/my-submissions' element={<MySubmissions artblocks={DUMMY_ARRAY}          isLoggedIn={isLoggedIn} />} />
+          <Route path='/my-submissions' element={<MySubmissions artblocks={artblocks}          isLoggedIn={isLoggedIn} />} />
           <Route path='/login' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/signup' element={<SignupPage setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='*' element={<ErrorPage setIsLoggedIn={setIsLoggedIn}/>} />
