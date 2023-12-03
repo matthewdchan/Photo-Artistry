@@ -2,6 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';  // for navigation back to orig view
+
+import { useArtContext } from '../../ArtContext';
+
 // packaging form data into json object
 import axios from 'axios';
 
@@ -15,18 +18,10 @@ function NewItem (props) {
     const [artist, setArtist] = useState('');
     const [date, setDate] = useState('');
 
+    const { artblocks, setArtblocks } = useArtContext();
+
     const navigate = useNavigate();
-
-    useEffect(() => {
-        axios.get('http://localhost:4000/arts')
-        .then((response) => {
-        })
-        .catch(error => {
-          console.log(error);
-        });
-      }, []);
      
-
     const nameChangeHandler = (event) => {
         setName(event.target.value);
     };
@@ -50,7 +45,7 @@ function NewItem (props) {
             img: img,
             artist: artist,
             date: date,
-            identifier: "1",
+            //identifier: "1",
             // unique identifers's are created by mongoDB inside the arts.js routing
         };
 
@@ -59,7 +54,7 @@ function NewItem (props) {
         .then((res) => {
             console.log(res);
             console.log(res.data);
-            //props.setArtblocks((prevArtblocks) => [...prevArtblocks, res.data]);
+            setArtblocks((prevArtblocks) => [...prevArtblocks, newItem]);
             navigate('/');
         })
         .catch((err) => {

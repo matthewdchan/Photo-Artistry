@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // for navigation back to orig view
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useArtContext } from '../../ArtContext';
 // packaging form data into json object
 import axios from 'axios';
 
@@ -15,6 +16,7 @@ and allow the user to edit the fields then submit the form which sends an axios 
 function EditItem (props) {
     const { id } = useParams();
     const navigate = useNavigate();
+    const { artblocks, setArtblocks } = useArtContext();
 
     // all states for object attributes
     const [name, setName] = useState('');
@@ -75,12 +77,11 @@ function EditItem (props) {
         .then((res) => {
             console.log(res);
             console.log(res.data);
-            //props.setArtblocks((prevArtblocks) => {
-                //const updatedArtblocks = prevArtblocks.map((artblock) => {
-                //    return artblock._id === id ? {...artblock, ...data} : artblock;
-               // });
-               // return updatedArtblocks;
-           // });
+            setArtblocks((prevArtblocks) => {
+                return prevArtblocks.map((artblock) => {
+                    return artblock._id === id ? {...artblock, ...data} : artblock;
+            });
+        });
             navigate('/');
         })
         .catch((err) => {

@@ -13,11 +13,13 @@ import Card from '../Card';
 import Art from '../Art';
 import button from '../Button';
 import { useNavigate } from 'react-router-dom';
+import { useArtContext } from '../../ArtContext';
 
 import axios from 'axios';
 
 const MySubmissions = (props) => {
     const navigate = useNavigate();
+    const { artblocks, setArtblocks } = useArtContext();
 /*
 read thru axios slides on editing
 and deleting
@@ -39,11 +41,8 @@ a item
             axios
                 .delete(`http://localhost:4000/arts/${id}`)
                 .then((res) => {
-                    //props.setArtblocks((prevArtblocks) => {
-                     //   const updatedArtblocks = prevArtblocks.filter((artblock) => artblock._id !== id);
-                    //    return updatedArtblocks;
-                   // });
-                    navigate('/auth-user'); // maybe change this
+                setArtblocks((prevArtblocks) => prevArtblocks.filter((artblock) => artblock._id !== id));
+                navigate('/auth-user'); // maybe change this
                 })
                 .catch(error => {
                     console.log('Error on deleting artblock', error);
@@ -51,6 +50,7 @@ a item
 
         
     };
+
 
     return(
         <>
@@ -60,7 +60,7 @@ a item
             <Main>
                 <h2>View your custom submissions here</h2>
                 <Card className="art-wrapper">
-                    {props.artblocks.map((artblock) => (
+                    {artblocks.map((artblock) => (
                         <Art
                         className="art-block"
                         name={artblock.name}

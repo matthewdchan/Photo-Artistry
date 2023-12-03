@@ -4,6 +4,7 @@ import './NonAuthUser.css';
 // React
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 // Needed Components
 import Header from '../PageSections/Header';
@@ -11,15 +12,20 @@ import Main from '../PageSections/Main';
 import Footer from '../PageSections/Footer';
 import Card from '../Card';
 import Art from '../Art';
+import { useArtContext } from '../../ArtContext';
 
 
 function NonAuthUser(props) {
+    const { artblocks} = useArtContext();
 
     if (props.isLoggedIn) {
         console.log("isLoggedIn = true");
     } else {
         console.log("isLoggedIn = false");
     } 
+    useEffect(() => {
+        console.log('Context Artblocks: ', artblocks);
+    } , [artblocks]);
 
     return(
         <div>
@@ -29,7 +35,7 @@ function NonAuthUser(props) {
             </Header>
             <Main>
                 <Card className="art-wrapper">
-                    {props.artblocks.map((artblock) => (
+                    {artblocks.map((artblock) => (
                         <Art
                             className="art-block"
                             name={artblock.name}
