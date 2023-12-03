@@ -1,7 +1,10 @@
 // React
-import React from 'react';
-import { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
+// Authentication
+import UserContext from '../../context/UserContext';
+import axios from 'axios';
 
 // Needed Components
 import Card from '../Card';
@@ -14,6 +17,11 @@ function Login (props) {
     const [username, setuserName] = useState('');
     const [password, setPassword] = useState('');
 
+    // Authentication
+    const [error, setError] = useState("");             // "error" = some error message in signup process
+    const [loading, setLoading] = useState(false);      // "loading" = the process is loading correctly
+    const { setUserData } = useContext(UserContext);
+
     const usernameChangeHandler = (event) => {
         setuserName(event.target.value);
     };
@@ -21,18 +29,46 @@ function Login (props) {
         setPassword(event.target.value);
     };
 
-    const submitHandler = (event) => {
-        event.preventDefault();
-        const newUser = {
-            usernamename: username,
-            password: password,
-            id: Math.random().toString(),
-        };
-        props.onLogin();
-        console.log(newUser);
-        setuserName('');
-        setPassword('');
-        navigate('/auth-user');
+    async function submitHandler (event) {
+        try {
+            // Prevent default form action
+            event.preventDefault();
+            setLoading(true);
+
+            // Bundle new user
+            const loginUser = {
+                username: username,
+                password: password,
+                id: Math.random().toString(),
+            };
+
+            // Store token and user to 'login' database in MongoDB
+            const loginRes = await axios.post('http://localhost:3000/login', loginUser)
+            setUserData({
+                token: loginRes.data.token,
+                user: loginRes.data.user,
+            });
+
+            // localStorage to "establish a login session"
+            // Ensures data survives page refreshs, reloads, etc.
+            localStorage.setItem("auth-token", loginRes.data.token);
+
+            // Finished loading, navigate to current directory
+            setLoading(false);
+            navigate('/')
+
+            // Old stuff
+            props.onLogin();
+            console.log(loginUser);
+
+            // Clear fields
+            setuserName('');
+            setPassword('');
+        }
+        catch(err){ // some error during authentication process
+            setLoading(false);
+            err.response.data.msg && setError(err.response.data.msg);
+        }
     };
 
 

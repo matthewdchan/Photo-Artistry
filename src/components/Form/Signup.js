@@ -1,7 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
+// React
+import { React, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../../context/UserContext';
+import axios from 'axios';
 
+// Needed Components
 import Card from '../Card';
 //import UserAccount from '../../../models/UserAccount';
 import './Form.css';
@@ -13,6 +16,11 @@ function Signup(props) {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
 
+    // Authentication
+    const [error, setError] = useState("");             // "error" = some error message in signup process
+    const [loading, setLoading] = useState(false);      // "loading" = the process is loading correctly
+    const { setUserData } = useContext(UserContext);
+
     const usernameChangeHandler = (event) => {
         setuserName(event.target.value);
     };
@@ -23,24 +31,54 @@ function Signup(props) {
         setEmail(event.target.value);
     }
 
-    const submitHandler = (event) => {
+    async function submitHandler(event) {
+        // Prevent default form action
         event.preventDefault();
+        setLoading(true);
 
-        // package
-        const newUser = {
-            usernamename: username,
-            password: password,
-            email: email,
-            id: Math.random().toString(),
-        };
+        try {
+            // Package content
+            const newUser = {
+                username: username,
+                password: password,
+                email: email,
+                id: Math.random().toString(),
+            };
+    
+            props.onSignup();
+            console.log(newUser);
+    
+            // Save user info to 'signup' database in MongoDB
+            await axios.post('http://localhost:3000/signup', newUser);
 
-        props.onSignup();
-        console.log(newUser);
+            // Store token and user to 'login' database in MongoDB
+            const loginRes = await axios.post('http://localhost:3000/login', {
+                username,
+                password,
+            });
+            setUserData({
+                token: loginRes.data.token,
+                user: loginRes.data.user,
+            })
 
-        // clear fields 
-        setuserName('');
-        setPassword('');
-        setEmail('');
+            // localStorage to "establish a login session"
+            // Ensures data survives page refreshs, reloads, etc.
+            localStorage.setItem("auth-token", loginRes.data.token);
+
+            // Finished loading, navigate to current directory
+            setLoading(false);
+            navigate('/')
+
+            // Clear form fields 
+            setuserName('');
+            setPassword('');
+            setEmail('');
+        }
+        catch(err){ // some error during authentication process
+            setLoading(false);
+            err.response.data.msg && setError(err.response.data.msg);
+        }
+    
 
         navigate('/auth-user');
     };

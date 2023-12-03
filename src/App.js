@@ -20,8 +20,41 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 import axios from 'axios';
+import UserContext from './context/UserContext';
 
 function App() {
+
+  // Authentication
+  const [userData, setUserData] = useState({ // userData is composed of a token and user
+    token: undefined,
+    user: undefined,
+  })
+  useEffect(() => {
+    const checkLoggedIn = async () => {
+      let token = localStorage.getItem('auth-token');
+
+      if(token == null){
+        localStorage.setItem('auth-token', "");
+        token = "";
+      }
+
+      const tokenResponse = await axios.post(
+        "http://localhost:3000/tokenIsValid",
+        null,
+        { headers: { "x-auth-token" : token }}
+      );
+
+      if(tokenResponse.data){
+        const userRes = await axios.get('http://localhost:3030/', {
+          headers: { "x-auth-token" : token},
+        });
+        setUserData({
+          token,
+          user: userRes.data,
+        });
+      }
+    };
+  }, []);
 
   // Dummy Data
   const DUMMY_ARRAY = [
@@ -78,6 +111,7 @@ function App() {
   }, []);
 
   return (
+    <UserContext.Provider value = {{ userData, setUserData }}>
     <Router>
       <div>
         <Routes>
@@ -95,6 +129,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </UserContext.Provider>
   );
 }
 
