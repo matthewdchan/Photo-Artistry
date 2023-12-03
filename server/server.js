@@ -4,7 +4,7 @@ const server = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const arts = require('./routes/arts');
-const port = process.env.PORT || 5000; // default port
+const port = process.env.PORT || 4000; // default port
 
 // connecting to the database
 server.use(cors({ origin: true, credentials: true }));

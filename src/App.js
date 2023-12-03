@@ -68,7 +68,7 @@ function App() {
   const [artblocks, setArtblocks] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/arts')
+    axios.get('http://localhost:4000/arts')
     .then((response) => {
       setArtblocks(response.data);
     })
