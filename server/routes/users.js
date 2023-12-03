@@ -7,6 +7,7 @@ const User = require('../models/User');
 // auth packages
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const auth = require('../../middleware/auth');
 const { hasFormSubmit } = require('@testing-library/user-event/dist/utils');
 
 /* SIGN UP ROUTE */
@@ -38,22 +39,77 @@ router.post("/signup", async (req, res) => {
         const savedUser = await newUser.save();
         console.log(savedUser.username);
         res.json(savedUser);
-
-
-
-
     }
     catch (err) {
         return res.status(500).json({ error: err.message }) // all other possible errors
     }
-    
+});
 
+/* LOGIN ROUTE */
+router.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        // Error: not all login fields filled
+        if(!username || !password){
+            return req.status(400).json({ msg: 'Please enter all fields.' });
+        }
+
+        const user = await User.findOne({ username });
+        // Error : no user found for login
+        if(!user) {
+            return res.status(400).json({ msg: 'User with this username does not exist.' });
+        }
+
+        // Compare user entered "password" to encrypted password in system
+        const isMatch = await bcryptjs.compare(password, user.password);
+
+        // Error: incorrect password
+        if(!isMatch){
+            return res.status(400).send({ msg: 'Incorrect password.' });
+        }
+
+        // Create a token so we can pesist user token in the frontend
+        const token = jwt.sign({id : user._id}, 'passwordKey');
+        res.json({ token, user: { id: user._id, username : user.username } });
+    }
+    catch(err){
+        res.status(500).json({ error: err.message });
+    }
+});
+
+/* VALIDATE TOKEN */
+router.post('/tokenIsValid', async (req, res) =>  {
+    try {
+        // Check: does the token exist
+        const token = req.header("x-auth-token");
+        if(!token) return res.json(false);
+
+        // Check: is the token invalid or expired
+        const verified = jwt.verify(token, "passwordKey");
+        if(!verified) return res.json(false);
+
+        // Check: does the user exist
+        const user = await User.findById(verified.id);
+        if(!user) return res.json(false);
+
+        // Else, the token is valid
+        return res.json(true);
+    }
+    catch(err){
+        res.status(500).json({ error: err.message })
+    }
+});
+
+// GET request to get a user's username and token
+router.get('/', auth, async (req, res) =>  {
+    const user = await User.findById(req.user);
+    res.json({
+        username: user.username,
+        id : user._id,
+    })
 });
 
 
-
-
-
-
 // export router
-module.exports(router);
+module.exports = router;
