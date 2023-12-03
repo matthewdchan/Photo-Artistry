@@ -75,27 +75,22 @@ function EditItem (props) {
         .then((res) => {
             console.log(res);
             console.log(res.data);
-            const updatedArtblocks = props.artblocks.map((artblock) => {
-                return artblock._id === id ? {...artblock, ...data} : artblock;
-            });
-            props.setArtblocks(updatedArtblocks);
+            //props.setArtblocks((prevArtblocks) => {
+                //const updatedArtblocks = prevArtblocks.map((artblock) => {
+                //    return artblock._id === id ? {...artblock, ...data} : artblock;
+               // });
+               // return updatedArtblocks;
+           // });
             navigate('/');
         })
         .catch((err) => {
-            console.log('Error in updating item');
+            console.log('Error in updating item', err);
         });
 
         
         // console.log for now
         console.log(data);
 
-        // clear fields
-        /*
-        setName('');
-        setImg('');
-        setArtist('');
-        setDate('');
-        */
     }
 
 

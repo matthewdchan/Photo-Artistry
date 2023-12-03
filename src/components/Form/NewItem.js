@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';  // for navigation back to orig view
 // packaging form data into json object
 import axios from 'axios';
@@ -15,6 +16,16 @@ function NewItem (props) {
     const [date, setDate] = useState('');
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        axios.get('http://localhost:4000/arts')
+        .then((response) => {
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      }, []);
+     
 
     const nameChangeHandler = (event) => {
         setName(event.target.value);
@@ -48,11 +59,11 @@ function NewItem (props) {
         .then((res) => {
             console.log(res);
             console.log(res.data);
-            props.setArtblocks((prevArtblocks) => [...prevArtblocks, res.data]);
+            //props.setArtblocks((prevArtblocks) => [...prevArtblocks, res.data]);
             navigate('/');
         })
         .catch((err) => {
-            console.log('Error in creating new item');
+            console.log('Error in creating new item', err);
         });
 
         

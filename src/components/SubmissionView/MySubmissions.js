@@ -39,8 +39,10 @@ a item
             axios
                 .delete(`http://localhost:4000/arts/${id}`)
                 .then((res) => {
-                    const updatedArtblocks = props.artblocks.filter((artblock) => artblock._id !== id);
-                    props.setArtblocks(updatedArtblocks);
+                    //props.setArtblocks((prevArtblocks) => {
+                     //   const updatedArtblocks = prevArtblocks.filter((artblock) => artblock._id !== id);
+                    //    return updatedArtblocks;
+                   // });
                     navigate('/auth-user'); // maybe change this
                 })
                 .catch(error => {
@@ -65,7 +67,7 @@ a item
                         artist={artblock.artist}
                         img={artblock.img}
                         date={artblock.date}
-                        key={artblock.identifier}
+                        key={artblock._id}
                         showEditDelete={true}
                         onEdit= {() => handleEdit(artblock._id)}
                         onDelete={() => handleDelete(artblock._id)}
