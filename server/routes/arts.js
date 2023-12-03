@@ -13,7 +13,7 @@ router.post('/', bodyParser.json(), (req, res) => {
 // @route GET arts
 router.get('/', (req, res) => {
     Art.find()
-    .then((arts) => res.json(items))
+    .then((arts) => res.json(arts))
     .catch((err) => res.status(404).json({ noitemfound: 'No art pieces found' }));
 });
 
@@ -24,7 +24,7 @@ router.put('/:id', (req, res) => {
     .catch((err) => res.status(400).json({ error: 'Unable to update the database' }));
 });
 
-// @route PUT arts/:id
+// @route DELETE arts/:id
 router.delete('/:id', (req, res) => {
     Art.findByIdAndDelete(req.params.id)
     .then((art) => res.json({ msg: 'Art piece deleted successfully' }))
