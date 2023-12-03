@@ -44,7 +44,7 @@ function NewItem (props) {
         };
 
         axios
-        .post('http://localhost:5000/arts', newItem)
+        .post('http://localhost:4000/arts', newItem)
         .then((res) => {
             console.log(res);
             console.log(res.data);

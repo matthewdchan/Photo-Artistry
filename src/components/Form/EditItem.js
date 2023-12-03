@@ -41,7 +41,7 @@ function EditItem (props) {
         // server request to get the specific artwork and populate form
         // does not work currently
         axios
-        .get(`http://localhost:5000/arts/${encodedId}`)
+        .get(`http://localhost:4000/arts/${encodedId}`)
         .then((res) => {
             const data = res.data;
             console.log(data);
