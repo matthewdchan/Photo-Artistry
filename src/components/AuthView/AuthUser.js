@@ -13,8 +13,10 @@ import Footer from '../PageSections/Footer';
 import Card from '../Card';
 import Art from '../Art';
 import Button from '../Button';
+import { useArtContext } from '../../ArtContext';
 
 function AuthUser(props) {
+    const { artblocks, setArtblocks } = useArtContext();
 
     if (props.isLoggedIn) {
         console.log("isLoggedIn = true");
@@ -26,6 +28,7 @@ function AuthUser(props) {
         props.setIsLoggedIn(false);
     }
 
+
     return (
         <>
             <Header>
@@ -35,14 +38,14 @@ function AuthUser(props) {
             </Header>
             <Main>
                 <Card className="art-wrapper">
-                    {props.artblocks.map((artblock) => (
+                    {artblocks.map((artblock) => (
                         <Art
                         className="art-block"
                         name={artblock.name}
                         artist={artblock.artist}
                         img={artblock.img}
                         date={artblock.date}
-                        key={artblock.identifier}
+                        key={artblock._id}
                         isLoggedIn={props.isLoggedIn}
                         />
                     ))}

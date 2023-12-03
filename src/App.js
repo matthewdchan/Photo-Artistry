@@ -11,13 +11,14 @@ import SignupPage from './components/SignupView/SignupPage';
 import MySubmissions from './components/SubmissionView/MySubmissions';
 import UpdateItem from './components/EditItemView/UpdateItem';
 
+import { useArtContext, ArtProvider } from './ArtContext';
+
 
 // Router
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import React from 'react';
 import { useState } from 'react';
-import { useEffect } from 'react';
 
 import axios from 'axios';
 import UserContext from './context/UserContext';
@@ -98,31 +99,21 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(isLoggedInDefault); // [state, function
   // do something with this to fix it
 
-  const [artblocks, setArtblocks] = useState([]);
 
-  useEffect(() => {
-    axios.get('http://localhost:4000/arts')
-    .then((response) => {
-      setArtblocks(response.data);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-  }, []);
 
   return (
     <UserContext.Provider value = {{ userData, setUserData }}>
     <Router>
       <div>
         <Routes>
-          <Route exact path='/' element={<NonAuthUser artblocks={artblocks} setArtblocks={setArtblocks}/>} />
-          <Route exact path='/non-auth-user' element={<NonAuthUser artblocks={artblocks} setArtblocks={setArtblocks} isLoggedIn={isLoggedIn} />} />
+          <Route exact path='/' element={<NonAuthUser  />} />
+          <Route exact path='/non-auth-user' element={<NonAuthUser  isLoggedIn={isLoggedIn} />} />
           <Route path='/auth-user' element={isLoggedIn ? 
-            <AuthUser artblocks={artblocks} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> 
-            : <Navigate to={'/login'} />} artblocks={artblocks} setArtblocks={setArtblocks} />
+           ( <AuthUser  setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}  /> )
+            : <Navigate to={'/login'} />}  />
           <Route path='/add-item' element={<AddItem />} />
-          <Route path='/edit-item/:id' element={<UpdateItem />} artblocks={artblocks} setArtblocks={setArtblocks}  />
-          <Route path='/my-submissions' element={<MySubmissions artblocks={artblocks} setArtblocks={setArtblocks}         isLoggedIn={isLoggedIn} />} />
+          <Route path='/edit-item/:id' element={<UpdateItem artblocks={artblocks}   />}  />
+          <Route path='/my-submissions' element={<MySubmissions        isLoggedIn={isLoggedIn} />} />
           <Route path='/login' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='/signup' element={<SignupPage setIsLoggedIn={setIsLoggedIn} />} />
           <Route path='*' element={<ErrorPage setIsLoggedIn={setIsLoggedIn}/>} />
