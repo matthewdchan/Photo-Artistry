@@ -55,7 +55,7 @@ function NewItem (props) {
             console.log(res);
             console.log(res.data);
             setArtblocks((prevArtblocks) => [...prevArtblocks, newItem]);
-            navigate('/');
+            navigate('/auth-user');
         })
         .catch((err) => {
             console.log('Error in creating new item', err);

@@ -42,7 +42,7 @@ a item
                 .delete(`http://localhost:4000/arts/${id}`)
                 .then((res) => {
                 setArtblocks((prevArtblocks) => prevArtblocks.filter((artblock) => artblock._id !== id));
-                navigate('/auth-user'); // maybe change this
+                navigate('/my-submissions'); // maybe change this
                 })
                 .catch(error => {
                     console.log('Error on deleting artblock', error);
