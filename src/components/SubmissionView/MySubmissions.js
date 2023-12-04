@@ -71,6 +71,7 @@ a item
                         showEditDelete={true}
                         onEdit= {() => handleEdit(artblock._id)}
                         onDelete={() => handleDelete(artblock._id)}
+                        isLoggedIn={props.isLoggedIn}
                         />
                     ))}
                 </Card>

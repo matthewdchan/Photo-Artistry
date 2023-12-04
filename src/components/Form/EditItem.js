@@ -17,6 +17,7 @@ function EditItem (props) {
     const { id } = useParams();
     const navigate = useNavigate();
     const { artblocks, setArtblocks } = useArtContext();
+    console.log(id);
 
     // all states for object attributes
     const [name, setName] = useState('');
@@ -45,6 +46,7 @@ function EditItem (props) {
         axios
         .get(`http://localhost:4000/arts/${encodedId}`)
         .then((res) => {
+            console.log(res.data);
             const data = res.data;
             console.log(data);
 

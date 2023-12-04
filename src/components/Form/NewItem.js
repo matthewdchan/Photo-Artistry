@@ -35,7 +35,7 @@ function NewItem (props) {
         setDate(event.target.value);
     };
 
-    const submitHandler = (event) => {
+    const submitHandler = async (event) => {
         // prevent default
         event.preventDefault();
 
@@ -49,7 +49,7 @@ function NewItem (props) {
             // unique identifers's are created by mongoDB inside the arts.js routing
         };
 
-        axios
+        await axios
         .post('http://localhost:4000/arts', newItem)
         .then((res) => {
             console.log(res);

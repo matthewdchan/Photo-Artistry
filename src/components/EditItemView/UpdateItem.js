@@ -12,13 +12,14 @@ import Footer from '../PageSections/Footer';
 import EditItem from '../Form/EditItem';
 
 function UpdateItem(){
+
     return(
         <>
             <Header>
                 <Link to='/my-submissions'>Home</Link>
             </Header>
             <Main>
-                <EditItem/>
+                <EditItem />
             </Main>
             <Footer />
         </>
