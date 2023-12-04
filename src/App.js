@@ -46,7 +46,7 @@ function App() {
       );
 
       if(tokenResponse.data){
-        const userRes = await axios.get('http://localhost:3030/', {
+        const userRes = await axios.get('http://localhost:3000/', {
           headers: { "x-auth-token" : token},
         });
         setUserData({
@@ -55,6 +55,7 @@ function App() {
         });
       }
     };
+    checkLoggedIn(); // function call
   }, []);
 
   // Dummy Data
@@ -102,7 +103,7 @@ function App() {
 
 
   return (
-    <UserContext.Provider value = {{ userData, setUserData }}>
+    <UserContext.Provider value={{ userData, setUserData }}>
     <Router>
       <div>
         <Routes>
