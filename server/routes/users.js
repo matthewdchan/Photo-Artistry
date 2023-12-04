@@ -1,6 +1,6 @@
 // load packages
 const express = require('express');
-const router = express.Router();
+const userrouter = express.Router();
 var bodyParser = require("body-parser");
 const User = require('../models/User');
 
@@ -11,7 +11,7 @@ const auth = require('../../middleware/auth');
 const { hasFormSubmit } = require('@testing-library/user-event/dist/utils');
 
 /* SIGN UP ROUTE */
-router.post("/signup", async (req, res) => {
+userrouter.post("/signup", async (req, res) => {
     try {
         const { email, username, password } = req.body;
 
@@ -46,7 +46,7 @@ router.post("/signup", async (req, res) => {
 });
 
 /* LOGIN ROUTE */
-router.post('/login', async (req, res) => {
+userrouter.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
 
@@ -79,7 +79,7 @@ router.post('/login', async (req, res) => {
 });
 
 /* VALIDATE TOKEN */
-router.post('/tokenIsValid', async (req, res) =>  {
+userrouter.post('/tokenIsValid', async (req, res) =>  {
     try {
         // Check: does the token exist
         const token = req.header("x-auth-token");
@@ -102,7 +102,7 @@ router.post('/tokenIsValid', async (req, res) =>  {
 });
 
 // GET request to get a user's username and token
-router.get('/', auth, async (req, res) =>  {
+userrouter.get('/', auth, async (req, res) =>  {
     const user = await User.findById(req.user);
     res.json({
         username: user.username,
@@ -112,4 +112,4 @@ router.get('/', auth, async (req, res) =>  {
 
 
 // Export
-module.exports = router;
+module.exports = userrouter;
