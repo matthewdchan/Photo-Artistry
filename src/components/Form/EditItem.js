@@ -12,7 +12,6 @@ import './Form.css';
 the form should auto populate with the values for the given art from the database
 and allow the user to edit the fields then submit the form which sends an axios request
 */
-// Does not work currently///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function EditItem (props) {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -42,7 +41,6 @@ function EditItem (props) {
         const encodedId = encodeURIComponent(id);
         
         // server request to get the specific artwork and populate form
-        // does not work currently
         axios
         .get(`http://localhost:4000/arts/${encodedId}`)
         .then((res) => {
