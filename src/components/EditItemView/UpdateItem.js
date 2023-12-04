@@ -15,7 +15,7 @@ function UpdateItem(){
     return(
         <>
             <Header>
-                <Link to='/auth-user'>Home</Link>
+                <Link to='/my-submissions'>Home</Link>
             </Header>
             <Main>
                 <EditItem/>
