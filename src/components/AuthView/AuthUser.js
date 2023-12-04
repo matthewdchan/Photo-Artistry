@@ -47,9 +47,9 @@ function AuthUser(props) {
                 <Link to='/my-submissions'>My Submissions</Link>
             </Header>
             <Main>
-                <SearchBar claassName="search-bar" onSearch={handleSearch} />
+                <SearchBar onSearch={handleSearch} />
                 <Card className="art-wrapper">
-                    {artblocks.map((artblock) => (
+                    {filteredData.map((artblock) => (
                         <Art
                         className="art-block"
                         name={artblock.name}
