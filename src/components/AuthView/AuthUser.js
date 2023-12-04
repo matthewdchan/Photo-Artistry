@@ -2,7 +2,7 @@
 import './AuthUser.css';
 
 // React
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 
@@ -12,22 +12,32 @@ import Main from '../PageSections/Main';
 import Footer from '../PageSections/Footer';
 import Card from '../Card';
 import Art from '../Art';
-import Button from '../Button';
+import SearchBar from '../SearchBar';
 import { useArtContext } from '../../ArtContext';
 
 function AuthUser(props) {
     const { artblocks, setArtblocks } = useArtContext();
+    const [filteredData, setFilteredData] = useState([]);
 
-    if (props.isLoggedIn) {
-        console.log("isLoggedIn = true");
-    } else {
-        console.log("isLoggedIn = false");
-    } 
+    useEffect(() => {
+        setFilteredData(artblocks);
+    }, [artblocks]);
+
+    const handleSearch = (searchTerm) => {
+        if (!searchTerm) {
+            setFilteredData(artblocks);
+        } else {
+            const filtered = artblocks.filter(item =>
+                item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                item.artist.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            setFilteredData(filtered);
+        }
+    };
     
     const setIsLoggedInHandlerFalse = () => {
         props.setIsLoggedIn(false);
     }
-
 
     return (
         <>
@@ -37,6 +47,7 @@ function AuthUser(props) {
                 <Link to='/my-submissions'>My Submissions</Link>
             </Header>
             <Main>
+                <SearchBar onSearch={handleSearch} />
                 <Card className="art-wrapper">
                     {artblocks.map((artblock) => (
                         <Art
@@ -45,7 +56,7 @@ function AuthUser(props) {
                         artist={artblock.artist}
                         img={artblock.img}
                         date={artblock.date}
-                        key={artblock._id}
+                        key={artblock.id}
                         isLoggedIn={props.isLoggedIn}
                         />
                     ))}
