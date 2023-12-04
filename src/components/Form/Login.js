@@ -43,7 +43,7 @@ function Login (props) {
             };
 
             // Store token and user to 'login' database in MongoDB
-            const loginRes = await axios.post('http://localhost:3000/login', loginUser)
+            const loginRes = await axios.post('http://localhost:4000/users/login', loginUser)
             setUserData({
                 token: loginRes.data.token,
                 user: loginRes.data.user,
@@ -55,7 +55,7 @@ function Login (props) {
 
             // Finished loading, navigate to current directory
             setLoading(false);
-            navigate('/')
+            navigate('/auth-user')
 
             // Old stuff
             props.onLogin();
@@ -67,6 +67,7 @@ function Login (props) {
         }
         catch(err){ // some error during authentication process
             setLoading(false);
+            console.log("err from Login.js")
             err.response.data.msg && setError(err.response.data.msg);
         }
     };
@@ -87,7 +88,7 @@ function Login (props) {
                 <label>Password</label>
                 <input
                     id="password"
-                    type="text"
+                    type="password"
                     value={password}
                     onChange={passwordChangeHandler}
                     required

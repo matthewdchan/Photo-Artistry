@@ -57,37 +57,6 @@ function App() {
     };
   }, []);
 
-  // Dummy Data
-  const DUMMY_ARRAY = [
-    {
-        name: 'Girl with a Pearl Earring',
-        artist: 'Jonannes Vermeer',
-        img: 'https://cdn.britannica.com/33/194733-050-4CF75F31/Girl-with-a-Pearl-Earring-canvas-Johannes-1665.jpg',
-        date: '1665',
-        id: Math.random().toString()
-    },
-    {
-        name: 'Wanderer above the Sea of Fog',
-        artist: 'Caspar David Friedrich',
-        img: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg',
-        date: '1818',
-        id: Math.random().toString()
-    },
-    {
-        name: 'Me IRL',
-        artist: 'Unknown',
-        img: 'https://i.pinimg.com/736x/87/be/25/87be25487e6cd1a0fc7a3518544e876a.jpg',
-        date: '-',
-        id: Math.random().toString()
-    },
-    {
-        name: 'Impression, Sunrise',
-        artist: 'Claude Monet',
-        img: 'https://smarthistory.org/wp-content/uploads/2023/07/dezoomify-result-27-scaled.jpg',
-        date: '1872-1874',
-        id: Math.random().toString()
-    }
-  ];
 
   /*
   * MANUAL AUTHENTICATION
@@ -103,6 +72,7 @@ function App() {
 
   return (
     <UserContext.Provider value = {{ userData, setUserData }}>
+    <ArtProvider>
     <Router>
       <div>
         <Routes>
@@ -120,6 +90,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </ArtProvider>
     </UserContext.Provider>
   );
 }

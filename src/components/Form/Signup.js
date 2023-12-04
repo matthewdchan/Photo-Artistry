@@ -42,17 +42,16 @@ function Signup(props) {
                 username: username,
                 password: password,
                 email: email,
-                id: Math.random().toString(),
             };
     
             props.onSignup();
             console.log(newUser);
     
             // Save user info to 'signup' database in MongoDB
-            await axios.post('http://localhost:3000/signup', newUser);
+            await axios.post('http://localhost:4000/users/signup', newUser);
 
             // Store token and user to 'login' database in MongoDB
-            const loginRes = await axios.post('http://localhost:3000/login', {
+            const loginRes = await axios.post('http://localhost:4000/users/login', {
                 username,
                 password,
             });
@@ -90,7 +89,7 @@ function Signup(props) {
                 <label>Email</label>
                 <input
                     id="email"
-                    type="text"
+                    type="email"
                     value={email}
                     onChange={emailChangeHandler}
                     required
@@ -108,7 +107,7 @@ function Signup(props) {
                 <label>Password</label>
                 <input
                     id="password"
-                    type="text"
+                    type="password"
                     value={password}
                     onChange={passwordChangeHandler}
                     required

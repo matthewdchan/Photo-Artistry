@@ -82,7 +82,7 @@ function EditItem (props) {
                     return artblock._id === id ? {...artblock, ...data} : artblock;
             });
         });
-            navigate('/');
+            navigate('/my-submissions');
         })
         .catch((err) => {
             console.log('Error in updating item', err);
