@@ -2,7 +2,7 @@
 import './MySubmissions.css';
 
 // React
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Needed Components
@@ -11,15 +11,28 @@ import Main from '../PageSections/Main';
 import Footer from '../PageSections/Footer';
 import Card from '../Card';
 import Art from '../Art';
+import SearchBar from '../SearchBar';
 import button from '../Button';
 import { useNavigate } from 'react-router-dom';
 import { useArtContext } from '../../ArtContext';
-
 import axios from 'axios';
 
 const MySubmissions = (props) => {
     const navigate = useNavigate();
     const { artblocks, setArtblocks } = useArtContext();
+    const [filteredData, setFilteredData] = useState(artblocks);
+
+    const handleSearch = (searchTerm) => {
+        if (!searchTerm) {
+            setFilteredData(artblocks);
+        } else {
+            const filtered = artblocks.filter(item =>
+                item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                item.artist.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            setFilteredData(filtered);
+        }
+    };
 /*
 read thru axios slides on editing
 and deleting
@@ -59,8 +72,9 @@ a item
             </Header>
             <Main>
                 <h2>View your custom submissions here</h2>
+                <SearchBar onSearch={handleSearch} />
                 <Card className="art-wrapper">
-                    {artblocks.map((artblock) => (
+                    {filteredData.map((artblock) => (
                         <Art
                         className="art-block"
                         name={artblock.name}
