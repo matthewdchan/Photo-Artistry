@@ -20,20 +20,14 @@ import axios from 'axios';
 const MySubmissions = (props) => {
     const navigate = useNavigate();
     const { artblocks, setArtblocks } = useArtContext();
-/*
-read thru axios slides on editing
-and deleting
-a item
-*/
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     const handleEdit = (id) => {
         // Logic for handling edit
         console.log('Editing artblock with id', id);
         navigate(`/edit-item/${id}`); // -> move to the edit item form for editing
-        // add rest
+        
     };
 
-    // doesnt seem to work/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const handleDelete = (id) => {
         // Logic for handling delete
         console.log('Deleting artblock with id', id);
@@ -42,7 +36,7 @@ a item
                 .delete(`http://localhost:4000/arts/${id}`)
                 .then((res) => {
                 setArtblocks((prevArtblocks) => prevArtblocks.filter((artblock) => artblock._id !== id));
-                navigate('/my-submissions'); // maybe change this
+                navigate('/my-submissions'); 
                 })
                 .catch(error => {
                     console.log('Error on deleting artblock', error);

@@ -8,7 +8,6 @@ import axios from 'axios';
 
 // Needed Components
 import Card from '../Card';
-//import UserAccount from '../../../models/UserAccount';
 import './Form.css';
 
 function Login (props) {
